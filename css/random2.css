@@ -12,7 +12,10 @@
   width: 50px;
   border-radius: 50%;
   position: absolute;
-  opacity: 0.5; }
+  opacity: 0.5;
+  animation-name: hue;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards; }
 
 .player {
   width: 40px;
@@ -21,5 +24,11 @@
   position: absolute;
   bottom: 0;
   left: 180px; }
+
+@keyframes hue {
+  from {
+    filter: blur(10px); }
+  to {
+    filter: blur(0); } }
 
 /*# sourceMappingURL=random2.css.map */

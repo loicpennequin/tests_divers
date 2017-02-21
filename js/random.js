@@ -38,4 +38,4 @@ var createDrop = function() {
     setInterval(function(){
         createDrop();
         console.log(wind);
-    }, 50);
+    }, 100);

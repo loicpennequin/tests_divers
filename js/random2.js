@@ -1,36 +1,45 @@
+// mouse position detection
 document.onmousemove = function(e) {
     var event = e || window.event;
     window.mouseX = event.clientX;
     window.mouseY = event.clientY;
 }
 
+// creation and styling of a drop element
 var createDrop = function() {
     //drop random parameters
-    var x = Math.floor((Math.random()) * 750);
+    var x = Math.floor( Math.random() * 750);
     var y = Math.floor(( (Math.random()) * 100)-200);
     var color =  Math.floor(Math.random()*16777215).toString(16);
-    var duration = Math.floor((Math.random() * 1000) + 2000);
+    var animDuration = Math.floor((Math.random() * 1000) + 1000);
 
+    //accounting for the canvas margin in the mapping of mouse position
+    var trajOffset = document.getElementById('canvas').offsetLeft;
+    // the -400 sets theneutral angle at the middle of the canvas
+    var trajectory = (mouseX) - trajOffset - 400;
+    // converting mouse position to usable angle for the animation
+    var angle = ((trajectory / window.innerWidth ) * 180 ) * -1;
 
-
-
-
-    var drop = document.createElement("div");
-        drop.style.top = y + 'px';
+     window.drop = document.createElement("div");
+        drop.style.top = '0';
         drop.style.left = x + 'px';
         drop.style.backgroundColor = '#'+ color;
         drop.style.boxShadow= '0 0 10px #' + color;
         drop.animate([
-                          { top: '0'},
-                          { top: window.mouseY + 'px'}
+                        { transform: 'none'},
+                        { transform: 'rotate(' + angle + 'DEG) translateY(1000px)'}
                         ], {
-                          duration: duration
+                          duration: animDuration,
+                          fill: 'forwards'
                         });
         drop.className = "drop";
 
     document.getElementById('canvas').appendChild(drop);
 };
 
+
+
+// generating the drops
     setInterval(function(e){
         createDrop();
-    }, 500);
+    }, 50);
