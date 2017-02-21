@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/random.css">
+    </head>
+    <body>
+
+        <div class="canvas" id="canvas">
+        </div>
+        <div class = "settings">
+            <label for="wind">Vitesse du vent</label> </br>
+            <input id="wind" name="wind" type="range" value="" min="0" max="70" step="5" onchange="windChange()"/> </br>
+
+            <label for="speed">Vitesse de chute</label> </br>
+            <input id="speed" name="speed" type="range" value="" min="0" max="4500" step="500" onchange="speedChange()"/> </br>
+
+        </div>
+        <script src="js/random.js"></script>
+    </body>
+</html>

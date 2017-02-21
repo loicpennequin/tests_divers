@@ -1,0 +1,181 @@
+html, body
+    height: 300vh
+    overflow-x: hidden
+    margin: 0
+    padding: 0
+    background-color: #333
+
+.wrap
+    position: sticky
+    top: 50px
+    width: 200px
+    height: 100px
+    border: solid 2px white
+    border-radius: 50%
+    margin-top: 100px
+    margin-left: auto
+    margin-right: auto
+    box-sizing: border-box
+    font-size: 1em
+    text-align: center
+    font-weight: bold
+    box-shadow: 20px 20px 5px black, -20px 20px 5px rgb(30,0,0), -20px -20px 5px rgb(60,0,0), 20px -20px 5px rgb(90,0,0)
+    transform: scale(1.3, 1.3)
+
+.orbite
+    position: absolute
+    top: 50px
+    left: 100px
+    width: 10px
+    height: 10px
+    background-color: red
+    transform: translate(0, -62px)
+    animation-name: orbite
+    animation-duration: 3s
+    animation-iteration-count: infinite
+    animation-timing-function: linear
+    opacity: 0
+    animation-delay: 4s
+
+@keyframes orbite
+    from
+        transform: rotate(0DEG) translate(0, -62px)
+        opacity: 1
+        background-color: hsl(0, 70, 80)
+    25%
+        transform: rotate(90DEG) translate(0, -102px)
+        background-color: hsl(90, 70, 80)
+    50%
+        transform: rotate(180DEG) translate(0, -52px)
+        background-color: hsl(180, 70, 80)
+    75%
+        transform: rotate(270DEG) translate(0, -112px)
+        background-color: hsl(270, 70, 80)
+    to
+        transform: rotate(360DEG) translate(0,-62px)
+        opacity: 1
+        background-color: hsl(360, 70, 80)
+.dot
+    background-color: grey
+    position: absolute
+    top: 0
+    left: 0
+    width: 2px
+    height: 2px
+    transform: translate(-2px, -2px)
+    animation-name: dot
+    animation-duration: 4s
+    animation-fill-mode: forwards
+
+.line
+    filter: blur(2px)
+.line-top
+    background-color: grey
+    position: absolute
+    top: 0
+    left: 0
+    width: 0
+    height: 2px
+    transform: translate(-2px, -2px)
+    animation-name: top
+    animation-duration: 4s
+    animation-fill-mode: forwards
+    animation-timing-function: linear
+
+.line-right
+    background-color: grey
+    position: absolute
+    top: 0
+    right: 0
+    width: 2px
+    height: 0
+    transform: translate(2px, -2px)
+    animation-name: right
+    animation-duration: 4s
+    animation-fill-mode: forwards
+    animation-timing-function: linear
+
+.line-bottom
+    background-color: grey
+    position: absolute
+    bottom: 0
+    right: 0
+    width: 0
+    height: 2px
+    transform: translate(2px, 2px)
+    animation-name: bottom
+    animation-duration: 4s
+    animation-fill-mode: forwards
+    animation-timing-function: linear
+
+.line-left
+    background-color: grey
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 2px
+    height: 0
+    transform: translate(-2px, 2px)
+    animation-name: left
+    animation-duration: 4s
+    animation-fill-mode: forwards
+    animation-timing-function: linear
+
+@keyframes dot
+    from
+        left: 0
+        opacity: 1
+    20%
+        left: 100%
+    to
+        opacity: 0
+        left: 100%
+
+@keyframes right
+    from, 20%
+        height: 0
+    40%, to
+        height: 100px
+
+@keyframes bottom
+    from, 40%
+        width: 0
+    60%, to
+        width: 200px
+
+@keyframes left
+    from, 60%
+        height: 0
+    80%, to
+        height: 100px
+
+@keyframes top
+    from, 80%
+        width: 0
+    to
+        width: 200px
+
+.texte
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    opacity: 0.5
+    animation-name: rotate
+    animation-duration: 2s
+    animation-iteration-count: infinite
+    animation-timing-function: linear
+
+@keyframes rotate
+    from
+        transform: translate(-50%, -50%) rotateY(0DEG)
+    to
+        transform: translate(-50%, -50%) rotateY(360DEG)
+
+section
+    font-size: 4em
+    width: 60%
+    margin-left: auto
+    margin-right: auto
+    color: #383838
+    margin-top: 100px
