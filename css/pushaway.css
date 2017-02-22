@@ -1,0 +1,22 @@
+body {
+  background-color: black; }
+
+.canvas {
+  width: 500px;
+  height: 500px;
+  border: solid white 5px;
+  background-color: #000014;
+  background: url("../media/sky.jpg");
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden; }
+
+.drop {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0.5;
+  text-align: center; }
+
+/*# sourceMappingURL=pushaway.css.map */

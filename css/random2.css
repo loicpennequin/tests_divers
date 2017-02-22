@@ -1,11 +1,16 @@
+body {
+  background-color: #000014; }
+
 .canvas {
-  width: 800px;
-  height: 600px;
-  border: solid black 1px;
+  width: 500px;
+  height: 500px;
+  border: solid white 5px;
   background-color: #000014;
+  background: url("../media/sky.jpg");
   margin: 0 auto;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  filter: contrast(120%); }
 
 .drop {
   height: 50px;
