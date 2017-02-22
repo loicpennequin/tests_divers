@@ -1,4 +1,5 @@
-    var number = 1;
+var number = 1;
+var coords = [];
 
 // creation and styling of a drop element
 var createDrop = function() {
@@ -14,17 +15,11 @@ var createDrop = function() {
                  drop.style.backgroundColor = '#'+ color;
                  drop.className = "drop";
     document.getElementById('canvas').appendChild(drop);
-    drop.id = number;
+    drop.id = 'drop' + number;
     number++;
     //getting collision box for the drop
     var dropCoord = drop.getBoundingClientRect();
 }
-
- for ( let i=1 ; i<=150; i ++) {
-     createDrop();
- }
-
-
 
 // mouse position detection
 document.onmousemove = function(e) {
@@ -32,21 +27,38 @@ document.onmousemove = function(e) {
     window.mouseX = event.clientX;
     window.mouseY = event.clientY;
 }
+
+// collisions between mouse and drop
 var detection = function(e) {
     document.getElementById(e).onmouseover = function() {
-            document.getElementById(e).animate([
-                            { opacity: '0.5'},
-                            { opacity: '0'}
-                            ], {
-                              duration: 500,
-                              fill: 'forwards'
-                            });
-            setTimeout (function(){
-                document.getElementById(e).style.display = 'none';
-            }, 500)
+            let dropID = document.getElementById(e);
+            let x = dropID.offsetLeft;
+            let y = dropID.offsetTop;
+            // generating a random added value, either from -100 to -50 or from 50 to 100
+            let randAddX = Math.floor((Math.random() * 50) + 50);
+            let plusOrMinus = Math.round(Math.random());
+                if (plusOrMinus == 0) {
+                    randAddX = -1 * randAddX
+                }
+            let randAddY = Math.floor((Math.random() * 50) + 50);
+                plusOrMinus = Math.round(Math.random());
+                if (plusOrMinus == 0) {
+                    randAddY = -1 * randAddY
+                }
+            dropID.animate([
+                { top: y + 'px',
+                left: x + 'px'},
+                { top: (y + randAddY) + 'px',
+                left: (x + randAddX) + 'px'}
+                ], {
+                duration: 500,
+                 fill: 'forwards'
+                });
     }
 }
 
-for (i = 1 ; i<=150; i++) {
-    detection(i);
+for ( let i=1 ; i<=200; i ++) {
+    createDrop();
+    coords[i] = document.getElementById('drop' + i).getBoundingClientRect();
+    detection('drop'+i);
 }
