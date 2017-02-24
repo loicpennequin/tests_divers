@@ -1,0 +1,23 @@
+body {
+  background-color: black;
+  height: 100%;
+  overflow: hidden; }
+
+.drop {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: green;
+  opacity: 0.3;
+  transform: translate(-50%, -50%);
+  animation-name: fadeOut;
+  animation-duration: 5s; }
+
+@keyframes fadeOut {
+  from {
+    opacity: 0.3; }
+  to {
+    opacity: 0; } }
+
+/*# sourceMappingURL=color_change.css.map */
